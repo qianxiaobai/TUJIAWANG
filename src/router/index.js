@@ -48,6 +48,26 @@ export default new Router({
       //     component: () => import("components/mine/redpack"),
       //   }
       // ]
+    },
+    {
+      path:"/cityList",
+      component:()=>import("views/cityList"),
+      name:"cityList",
+      meta:{
+          tabBar:false,
+          auth:false
+      },
+      children:[{
+        path:"command",
+        component:()=>import("components/command"),
+      },{
+        path:"china",
+        component:()=>import("components/china"),
+      },{
+        path:"foreign",
+        component:()=>import("components/foreign"),
+      }]
     }
+    
   ]
 })
