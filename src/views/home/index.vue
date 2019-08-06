@@ -43,7 +43,10 @@
     <!-- 轮播图 -->
     <AutoBot />
     <!-- MainList -->
-    <MainList />
+    <router-link to="details" tag="div">
+        <MainList />
+    </router-link>
+    
     <!-- 底部 -->
     <HomeBottom />
     <!-- APP内打开 -->
