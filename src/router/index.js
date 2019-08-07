@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from 'views/home/index.vue'
 import Mine from "views/mine/index.vue"
+import Collection from "./collection/index"
+
 Vue.use(Router)
 
 export default new Router({
@@ -17,6 +19,11 @@ export default new Router({
       path: '/mine',
       name: 'mine',
       component: Mine,
+    },
+    Collection
+  ]
+})
+
       // children: [{
       //     name: "order",
       //     path: "order",
@@ -48,6 +55,3 @@ export default new Router({
       //     component: () => import("components/mine/redpack"),
       //   }
       // ]
-    }
-  ]
-})
