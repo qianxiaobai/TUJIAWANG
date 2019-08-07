@@ -1,76 +1,105 @@
 <template>
+  <!-- 首页发现公寓 -->
   <div>
     <div class="mainTitle">
+      <!-- 收藏警告框 -->
+      <div class="tj-toast tj-toast--text tj-toast--middle" v-show="collection">
+        <div class="text">{{collectiontext}}</div>
+      </div>
       <h2>发现公寓</h2>
-</div>
-      <ul>
-        <li v-for="(item,index) in mainlist" :key="index">
-          <div  class="g-unit-item-layout" title="item.unitName">
-            <div class="m-img-info">
-                <a >
+    </div>
+    <ul>
+      <li v-for="(item,index) in homelist" :key="index">
+        <div class="g-unit-item-layout" title="item.unitName">
+          <div class="m-img-info">
+            <a>
               <img alt="item.unitName" class="u-img z-lazy-bg" :src="item.defaultPicUrl" />
-              </a>
-              <div class="m-favorite">
-                <i class="icon-unit-unfavorate" @click="favoriteHandler(index)"  :class="item.active?'':'favoritestyle'"></i>
-              </div>
-              <div class="m-price-info">
-                <span class="f-fwb">￥{{item.finalPrice}}</span>
-              </div>
+            </a>
+            <div class="m-favorite" @click="favoriteclickHandler(index,item.unitID)">
+              <i
+                class="icon-unit-unfavorate"
+                @click="favoriteHandler(index,item.unitID)"
+                :class="item.active?'':'favoritestyle'"
+              ></i>
             </div>
-            <div class="g-unit-info">
-              <span class="u-logo">
-                <div class="user-avatar-wrapper z-lazy-bg user-avatar">
-                  <img :src="item.smallPictureUrl" alt="用户头像" />
-                  <span class="icon-best-landlord" style="display: none;"></span>
-                </div>
-              </span>
-              <div class="m-title">
-                <span class="u-tit f-toe">{{item.unitName}}</span>
-              </div>
-              <p class="m-info f-toe">
-                <span>{{item.unitSummary}}</span>
-                <span></span>
-              </p>
-              <div class="m-tags">
-                <p class="g-unit-tags-layout">
-                  <span class="u-tag">实拍</span>
-                  <span class="u-tag">验真</span>
-                </p>
-              </div>
+            <div class="m-price-info">
+              <span class="f-fwb">￥{{item.finalPrice}}</span>
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
+          <div class="g-unit-info">
+            <span class="u-logo">
+              <div class="user-avatar-wrapper z-lazy-bg user-avatar">
+                <img :src="item.smallPictureUrl" alt="用户头像" />
+                <span class="icon-best-landlord" style="display: none;"></span>
+              </div>
+            </span>
+            <div class="m-title">
+              <span class="u-tit f-toe">{{item.unitName}}</span>
+            </div>
+            <p class="m-info f-toe">
+              <span>{{item.unitSummary}}</span>
+              <span></span>
+            </p>
+            <div class="m-tags">
+              <p class="g-unit-tags-layout">
+                <span class="u-tag">实拍</span>
+                <span class="u-tag">验真</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
-import {getData} from "api/index.js";
+import { getData } from "api/home.js";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      mainlist: [],
+      collection: false,
+      collectiontext: ""
     };
   },
+
   created() {
-    getData().then(data => {
-    //   console.log(data.data.units);
-      this.mainlist = data.data.units;
-      console.log(this.mainlist);
-    });
+    // getData().then(data => {
+    //   //   console.log(data.data.units);
+    //   this.mainlist = data.data.units;
+    //   console.log(this.mainlist);
+    // });
+    this.getHomeData();
+    
   },
-  // async created() {
-  //   let date=await  getData(this.units)
-  //   console.log(date)
-  //     // this.mainlist = getData(date.data.units);
-  //     // console.log(this.mainlist);
-  //   },
+  computed: {
+    ...mapState({
+      homelist: state => state.homestore.homelist,
+      collectionlist: state => state.homestore.collectionlist,
+    })
+  },
+  methods: {
+    ...mapActions({
+      getHomeData: "homestore/getHomeData",
+    }),
+    ...mapMutations({
+          favoriteclickHandler:"homestore/favoriteclickHandler"
+    }),
 
-
-  methods:{
-    favoriteHandler(index){
-        // console.log(this.mainlist[index].active)
-        this.mainlist[index].active=! this.mainlist[index].active;
-        
+    favoriteHandler(index,val) {
+      
+      // console.log(this.mainlist[index].active)
+      console.log(val)
+      if (!this.homelist[index].active) {
+        this.collectiontext = "取消收藏成功";
+        this.collection = true;
+      } else {
+        this.collectiontext = "收藏成功";
+        this.collection = true;
+      }
+      setTimeout(() => {
+        this.collection = false;
+      }, 3000);
     }
   }
 };
@@ -83,6 +112,35 @@ export default {
   line-height: 0.65rem;
   color: #666;
 }
+/* 收藏 */
+.tj-toast--text {
+  box-sizing: border-box;
+  padding: 0.17rem 0.2rem;
+  min-width: 2.71rem;
+  max-width: 2.71rem;
+  text-align: center;
+  z-index: 2000;
+}
+.tj-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -1.5rem;
+  display: flex;
+  color: #fff;
+  max-width: 70%;
+  font-size: 16px;
+  line-height: 0.21rem;
+  border-radius: 0.1rem;
+  word-break: break-all;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: content-box;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+}
+/*  */
 .g-unit-item-layout .m-img-info {
   position: relative;
   width: 100%;
@@ -99,7 +157,6 @@ export default {
   right: 0.2rem;
   width: 0.3rem;
   height: 0.3rem;
-  
 }
 .icon-unit-unfavorate {
   display: inline-block;
@@ -108,11 +165,11 @@ export default {
   width: 0.3rem;
   height: 0.3rem;
   background-size: 1.37rem 1.28rem;
-  z-index:500;
+  z-index: 500;
 }
-.favoritestyle{
-    background-image: url(https://nmstatic.tujia.com/static/images/page-unit-list.6ce19dc.png);
-    background-position: -.32rem -.34rem;
+.favoritestyle {
+  background-image: url(https://nmstatic.tujia.com/static/images/page-unit-list.6ce19dc.png);
+  background-position: -0.32rem -0.34rem;
 }
 .g-unit-item-layout .m-img-info .m-price-info {
   position: absolute;
@@ -207,7 +264,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  padding:0 .1rem .1rem .1rem
+  padding: 0 0.1rem 0.1rem 0.1rem;
 }
 
 .g-unit-item-layout .m-img-info .m-price-info .u-price {
