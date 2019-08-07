@@ -8,20 +8,6 @@ module.exports = {
                 pathRewrite: {
                     '^/bingo': '' 
                 }
-            },
-            "/v2": {
-                target: "https://api.growingio.com",
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/v2': '' 
-                }
-            },
-            "/staticimage": {
-                target: "https://api.growingio.com",
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/staticimage': '' 
-                }
             }
         }
     },
