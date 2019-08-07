@@ -38,7 +38,7 @@ export default new Router({
         path:"foreign",
         component:()=>import("components/foreign"),
       }]
-    }
-    
+    },
+      details
   ]
 })
