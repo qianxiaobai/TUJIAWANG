@@ -1,5 +1,9 @@
 import axios from "axios";
+import loading from "../lib/loading/index.js"
 import qs from "qs";  
+
+let vm = loading()
+
 //下载插件 npm i qs -S   
 //对数据序列化做兼容
 //qs.stringify() 对数据进行序列化
@@ -34,7 +38,7 @@ server.interceptors.request.use(config=>{  //config是为请求提供的配置�
        // config.headers["content-type"] = "application/x-www-form-urlencoded" //数据序列化    将post提交的值转换为 这种形式key=val&key=val 
       //config.data = qs.stringify(config.data); //对数据进行序列化
    }
-
+    vm.handlemount();
    //将处理好的处理给了服务器
    return config;
 },(err)=>{//第二个参数
@@ -43,9 +47,9 @@ server.interceptors.request.use(config=>{  //config是为请求提供的配置�
 
 
 //添加响应的拦截
-server.interceptors.response.use(res=>{ //res就是跨域获取的所有信息，我们只需要里面的data
-    
+server.interceptors.response.use(res=>{ //res就是跨域获取的所有信息，我们只需要里面的d
     if(res.statusText =="OK"){ //res方法
+            vm.handleDestory();
         return res.data; //返回res中的data，得到需要的data
     }
 },(err)=>{
