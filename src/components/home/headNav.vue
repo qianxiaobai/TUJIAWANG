@@ -13,7 +13,7 @@
                     <li class="line"></li>
                     <router-link to="/mine"><li><i class="iconfont">&#xe656;</i>我的</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe65c;</i>订单</li></router-link>
-                    <router-link to="/"><li><i class="iconfont">&#xe613;</i>收藏</li></router-link>
+                    <router-link to="/collection"><li><i class="iconfont">&#xe613;</i>收藏</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe64b;</i>消息</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe61d;</i>退出登录</li></router-link>
                     <li class="line"></li>
