@@ -9,7 +9,7 @@
       <!-- 如果需要分页器 -->
       <div class="swiper-pagination"></div>
       <div class="seach">
-        <div><i class="iconfont seachicon">&#xe680;</i> 您想住哪儿？</div>
+        <v-touch @tap="handler()" tag="div"><i class="iconfont seachicon">&#xe680;</i> 您想住哪儿？</v-touch>
       </div>
     </div>
   </div>
@@ -53,7 +53,11 @@ export default {
     }
   },
 
-  methods: {}
+  methods: {
+    handler(){
+       this.$router.push("/cityList/command");
+    }
+  }
 };
 </script>
 
