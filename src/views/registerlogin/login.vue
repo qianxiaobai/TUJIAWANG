@@ -66,8 +66,16 @@ export default {
     },
     btnHandler() {
       let localobj = JSON.parse(localStorage.getItem("user"));
+      if(localobj===null){
+        this.alerttext = "用户名不存在";
+        this.alert = true;
+        setTimeout(() => {
+          this.alert = false;
+        }, 2000);
+        return
+      }
       if (this.username != localobj.username || this.pwd != localobj.pwd) {
-        this.alerttext = "账号或密码错误";
+        this.alerttext = "用户名或密码错误";
         this.alert = true;
         setTimeout(() => {
           this.alert = false;
@@ -75,8 +83,8 @@ export default {
       }
       if (this.username === localobj.username && this.pwd === localobj.pwd) {
         let use = this.username;
-        let num = jwt.sign({ use }, "bk1910", { expiresIn: 5000 });
-        console.log(num);
+        let num = jwt.sign({ use }, "TUJIA", { expiresIn: 5000 });
+        // console.log(num);
         //jwt 3、发送到客户端
         this.changetoken(num);
         this.alerttext = "登陆成功";

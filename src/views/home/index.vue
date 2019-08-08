@@ -1,5 +1,6 @@
 <template>
-  <div id="home">    
+  <div id="home">   
+    <headerDown /> 
     <!-- 导航 -->
     <Nav />
     <!-- 轮播图 -->
@@ -66,6 +67,7 @@ import AutoTop from "components/home/autoplay-top.vue";
 import AutoBot from "components/home/autoplay-bottom.vue";
 import MainList from "components/home/mainlist.vue";
 import HomeBottom from "components/home/bottom.vue";
+import headerDown from "components/home/headerdown.vue";
 export default {
   data() {
     return {
@@ -77,7 +79,8 @@ export default {
     AutoTop,
     AutoBot,
     MainList,
-    HomeBottom
+    HomeBottom,
+    headerDown
   },
   methods: {
     floatCloseHandler() {
