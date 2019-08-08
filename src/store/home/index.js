@@ -2,7 +2,7 @@
 import {home_Data} from "api/home.js" 
 import {seachList_api} from "api/home.js"
 const state={
-    homelist:[],
+    homelist:sessionStorage.getItem("homeList")||[],
     collectionlist:[],
     seachlist:[],
     num:sessionStorage.getItem("num")||""
@@ -10,6 +10,7 @@ const state={
 
 const actions={
     //首页发现公寓
+
     async getHomeData({commit}){
         let data = await home_Data();  
         console.log(data.data)
@@ -40,9 +41,12 @@ const actions={
 
         //发现公寓数据
         getHomeData(state,val){
-            state.homelist=val.units
+            state.homelist=val.units;
+            //将home存入缓存
+            sessionStorage.setItem("homeList",state.homelist)
             console.log(state.homelist)
         },
+        //收藏
         favoriteclickHandler(state,value){
             // console.log(state,value)
             // console.log(state.homelist[value])

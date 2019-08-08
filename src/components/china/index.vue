@@ -16,7 +16,7 @@
                     <div class="city_list_name">
                         <v-touch class="city_list_name_item" 
                         v-for="(child,ids) in item.list" 
-                        :key="ids" tag="div" @tap="handleTo(child)">{{child.cityName}}</v-touch>
+                        :key="ids" tag="div" @tap="handleTo(child.cityName)">{{child.cityName}}</v-touch>
                     </div>
                 </div>
             </div>
@@ -50,17 +50,19 @@ export default {
        ...mapActions({
            handleGetCityAction:"city/handleGetCityAction"
        }),
-    //     ...mapMutations({
-    //         handleToggleCity:"city/handleToggleCity"
-    //      }),
+        // ...mapMutations({
+        //     handleToggleCity:"city/handleToggleCity"
+        //  }),
        handleIndexTo(index){
             let letterFirsts = this.$refs.list.querySelectorAll(".city_title_letter");
             this.$refs.scroll.scrollTop = letterFirsts[index].offsetTop;
        },
-    //     handleTo(params){
-    //         this.$router.push("/movie");
-    //         this.handleToggleCity(params)
-    //   }
+        handleTo(cityname){
+            console.log(cityname)
+            let citynm=cityname.cityName;
+            let cityid=cityname.cityId
+            this.$router.push({name:'seach',params:{id:cityid,name:citynm}});
+      }
    }
 
 }

@@ -1,7 +1,7 @@
 import { mapMutations } from 'vuex';
 <template>
   <div>
-    <a-Icon type="bars" @click="showDrawer" />
+    <a-Icon type="bars" @click="showDrawer"  class="color60"/>
     <a-Drawer placement="right" :closable="true" @close="onClose" :visible="visible">
       <ul class="mask">
         <router-link to="/">
@@ -44,7 +44,7 @@ import { mapMutations } from 'vuex';
         </div>
         <router-link to="/register" v-show="regshow">
           <li>
-            <i class="iconfont">&#xe61d;</i>注册
+            <i class="iconfont">&#xe61d;</i>注册/登录
           </li>
         </router-link>
         <li class="line"></li>
@@ -94,6 +94,7 @@ export default {
 };
 </script>
 <style>
+.color60{color:#f60}
 .mask {
   padding: 0.25rem 0.2rem 0.25rem 0.25rem;
 }

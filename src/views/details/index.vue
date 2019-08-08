@@ -1,5 +1,6 @@
 <template>
   <div class="detail">
+    <headerDown />
     <!-- 详情页头部 -->
     <div class="detail-log">
       <div>
@@ -234,9 +235,13 @@
  
 </template>
 <script>
-import {details_api} from  "api/details"
+import {details_api} from  "api/details";
+import headerDown from "components/home/headerdown.vue";
 export default {
   name: "Details",
+  components:{
+    headerDown
+  },
   props:["id","name"],
   async created(){
      let data = await details_api(this.id);
