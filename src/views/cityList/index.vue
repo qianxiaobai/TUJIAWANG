@@ -4,7 +4,9 @@
             <div class="m-search-box">
                 <input type="search" name="" placeholder="目的地/景点/关键词">
             </div> 
+            <v-touch @tap="backHandler()">
             <p  class="u-cancel">取消</p>
+            </v-touch>
         </div>
         <div class="g-search-normal">
             <div class="m-bar f-border-bottom-line-gray">
@@ -34,7 +36,11 @@
 
 <script>
     export default {
-
+methods:{
+    backHandler(){
+        this.$router.back()
+    }
+}
     }  
 </script>
 

@@ -54,15 +54,17 @@ const router= new Router({
 
     //定位跳转列表
     {
-      path:"/seach",
-      component:()=>import("views/seachdetail")
+      path:"/seach/:id/:name",
+      name:"seach",
+      component:()=>import("views/seachdetail"),
+      props: true
     },
       details
   ]
 })
 
 router.beforeEach((to,from,next)=>{
-    console.log(to,from);
+    // console.log(to,from);
     if(to.path !="/login" && to.meta.auth){
         if(sessionStorage.getItem("num")){
             next();

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <headerDown />
     <div class="head">
       <v-touch @tap="backHandler()" tag="div">
         <div class="icon">
@@ -49,10 +50,13 @@ import { getData } from "api/home.js";
 import { mapState, mapMutations, mapActions } from "vuex";
 import Floatheader from "components/home/headNav";
 import Footer from "components/mine/footer.vue";
+import headerDown from "components/home/headerdown.vue";
+
 export default {
   components: {
     Floatheader,
-    Footer
+    Footer,
+    headerDown
   },
   computed: {
     ...mapState({

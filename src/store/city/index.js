@@ -7,6 +7,7 @@ const state={
 
     cityHot1:JSON.parse(sessionStorage.getItem("cityHot1"))||[],
     cityList1:JSON.parse(sessionStorage.getItem("cityList1"))||[],
+    seachlist:{}
 
 }
 const actions={
@@ -22,6 +23,16 @@ const actions={
     }
 }
 const mutations={
+    //seach
+    handleToggleCity(state,val){
+        let obj=val;
+        console.log(obj)
+        console.log(obj.cityName)
+        state.seachlist.cityName=obj.cityName
+           console.log(state.seachlist)
+    },
+
+
     handleGetCityMutation(state,params){
         let cityList=[],cityHot=[];
           //热门城市
