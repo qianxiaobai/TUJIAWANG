@@ -35,4 +35,3 @@ module.exports = {
 //https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
 //https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
 //https://m.tujia.com/bingo/h5/config/getDownTujiaAppUrl?_apitsp=1564826231427
-

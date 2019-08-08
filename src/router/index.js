@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import details from './details'
 import Home from 'views/home/index.vue'
 import Mine from "views/mine/index.vue"
 import Collection from "./collection/index"
@@ -9,7 +10,7 @@ Vue.use(Router)
 
 const router= new Router({
   routes: [
-    // home
+       // home
     {
       path: '/',
       name: 'home',
@@ -50,11 +51,13 @@ const router= new Router({
         component:()=>import("components/foreign"),
       }]
     },
+
     //定位跳转列表
     {
       path:"/seach",
       component:()=>import("views/seachdetail")
-    }
+    },
+      details
   ]
 })
 

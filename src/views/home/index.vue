@@ -35,7 +35,9 @@
       <!-- 收藏警告框 -->
       <h2>发现公寓</h2>
     </div>
-    <MainList />
+    <router-link to="details" tag="div">
+        <MainList />
+    </router-link>
     <!-- 底部 -->
     <HomeBottom />
     <!-- APP内打开 -->
