@@ -29,7 +29,7 @@ export default {
   created() {
     setTimeout(() => {
       let arr = [
-        "https://pic.tujia.com/upload/mobileconfig/day_170317/201703171809488541.jpg",
+        "https://pic.tujia.com/upload/mobileconfig/day_190802/201908021900265191.jpg",
       ];
       this.banner = arr;
     }, 1000);

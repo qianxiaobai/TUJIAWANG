@@ -4,7 +4,7 @@
         <div class="head">
              <div class="icon"><a-icon type="left"/>途家</div>
              <div>我的途家</div>
-             <Floatheader/>
+             <HeadNav/>
         </div>
          <!-- /*middle*/ -->
          <div class="middle">
@@ -59,11 +59,11 @@
 </template>
 
 <script>
-import Floatheader from "components/home/headNav.vue";
+import HeadNav from "components/home/headNav.vue";
 import Footer from "components/mine/footer.vue"
     export default {
         components:{
-            Floatheader,
+            HeadNav,
             Footer
         },
         data() {

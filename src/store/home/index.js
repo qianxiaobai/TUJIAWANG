@@ -1,8 +1,11 @@
 
 import {home_Data} from "api/home.js" 
+import {seachList_api} from "api/home.js"
 const state={
     homelist:[],
-    collectionlist:[]
+    collectionlist:[],
+    seachlist:[],
+    num:sessionStorage.getItem("num")||""
 }
 
 const actions={
@@ -12,10 +15,29 @@ const actions={
         console.log(data.data)
         commit("getHomeData",data.data)
         },
-
+        //定位列表
+        async seachlistData({commit}){
+            let data = await seachList_api();  
+            console.log(data)
+            commit("seachlistData",data)
+            },
 
       }
       const  mutations ={
+          //将token存入sessionStorage
+          changetoken(state,val){
+            state.num =val;
+            sessionStorage.setItem('num', state.num);
+        },
+        // outlogin(state){
+        //     sessionStorage.removeItem('num');
+        // },
+          //seachlist
+          seachlistData(state,val){
+            state.seachlist=val
+            console.log(state.seachlist)
+        },
+
         //发现公寓数据
         getHomeData(state,val){
             state.homelist=val.units
@@ -33,6 +55,7 @@ const actions={
             
             // console.log(state.collectionlist)
         },
+        //取消收藏
         delectHandler(state,index){
             state.homelist[index].adverUnit=true;
             setTimeout(()=>{

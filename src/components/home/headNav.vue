@@ -1,3 +1,4 @@
+import { mapMutations } from 'vuex';
 <template>
     <div>
             <a-Icon type="bars" @click="showDrawer" />
@@ -11,11 +12,14 @@
                     <router-link to="/"><li><i class="iconfont">&#xe610;</i>首页</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe600;</i>搜索附近</li></router-link>
                     <li class="line"></li>
+                    <div v-show="tokenshow">
                     <router-link to="/mine"><li><i class="iconfont">&#xe656;</i>我的</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe65c;</i>订单</li></router-link>
                     <router-link to="/collection"><li><i class="iconfont">&#xe613;</i>收藏</li></router-link>
                     <router-link to="/"><li><i class="iconfont">&#xe64b;</i>消息</li></router-link>
-                    <router-link to="/"><li><i class="iconfont">&#xe61d;</i>退出登录</li></router-link>
+           <v-touch @tap="outlogin()" tag="div"><li><i class="iconfont">&#xe61d;</i>退出登录</li></v-touch>
+                    </div>
+                    <router-link to="/register" v-show="regshow"><li><i class="iconfont">&#xe61d;</i>注册</li></router-link>
                     <li class="line"></li>
                     <router-link to="/"><li><i class="iconfont">&#xe82f;</i>意见反馈</li></router-link>
         </ul>
@@ -23,13 +27,32 @@
              </div>
 </template>
 <script>
+import {mapMutations} from "vuex"
 export default {
     data(){
         return{
-visible: false,
+            visible: false,
+            tokenshow:false,
+            regshow:true
         }
     },
+    created(){
+      if(sessionStorage.getItem("num")){
+        this.tokenshow=true;
+        this.regshow=false;
+    }else{
+      this.tokenshow=false;
+      this.regshow=true;
+    }
+    },
      methods: {
+      //  ...mapMutations({
+      //       outlogin:"homestore/outlogin"
+      //  }),
+       outlogin(){
+            sessionStorage.removeItem('num');
+            this.$router.go(0)
+       },
         showDrawer() {
         this.visible = true
         },
