@@ -1,13 +1,12 @@
 <template>
   <!-- 首页发现公寓 -->
   <div>
-    <div class="mainTitle">
       <!-- 收藏警告框 -->
       <div class="tj-toast tj-toast--text tj-toast--middle" v-show="collection">
         <div class="text">{{collectiontext}}</div>
       </div>
-      <h2>发现公寓</h2>
-    </div>
+
+
     <ul>
       <li v-for="(item,index) in homelist" :key="index">
         <div class="g-unit-item-layout" title="item.unitName">
@@ -105,13 +104,7 @@ export default {
 };
 </script>
 <style>
-.mainTitle {
-  text-align: center;
-  background: #fff;
-  margin-top: 0.12rem;
-  line-height: 0.65rem;
-  color: #666;
-}
+
 /* 收藏 */
 .tj-toast--text {
   box-sizing: border-box;

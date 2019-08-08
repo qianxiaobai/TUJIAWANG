@@ -4,9 +4,11 @@ import details from './details'
 import Home from 'views/home/index.vue'
 import Mine from "views/mine/index.vue"
 import Collection from "./collection/index"
+import Login from "./registerlogin/login.js"
+import Register from "./registerlogin/register.js"
 Vue.use(Router)
 
-export default new Router({
+const router= new Router({
   routes: [
        // home
     {
@@ -19,8 +21,17 @@ export default new Router({
       path: '/mine',
       name: 'mine',
       component: Mine,
+      meta:{
+        auth:true
+      }
     },
+    //收藏
     Collection,
+    //注册
+   Register,
+    //登录
+    Login,
+    //citylist
     {
       path:"/cityList",
       component:()=>import("views/cityList"),
@@ -40,6 +51,28 @@ export default new Router({
         component:()=>import("components/foreign"),
       }]
     },
+
+    //定位跳转列表
+    {
+      path:"/seach",
+      component:()=>import("views/seachdetail")
+    },
       details
   ]
 })
+
+router.beforeEach((to,from,next)=>{
+    console.log(to,from);
+    if(to.path !="/login" && to.meta.auth){
+        if(sessionStorage.getItem("num")){
+            next();
+        }else{
+          
+            next("/login");
+        }
+    }else{
+        next();
+    }
+   
+})
+export default router
