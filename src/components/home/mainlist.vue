@@ -1,11 +1,10 @@
 <template>
   <!-- 首页发现公寓 -->
   <div>
-      <!-- 收藏警告框 -->
-      <div class="tj-toast tj-toast--text tj-toast--middle" v-show="collection">
-        <div class="text">{{collectiontext}}</div>
-      </div>
-
+    <!-- 收藏警告框 -->
+    <div class="tj-toast tj-toast--text tj-toast--middle" v-show="collection">
+      <div class="text">{{collectiontext}}</div>
+    </div>
 
     <ul>
       <li v-for="(item,index) in homelist" :key="index">
@@ -14,13 +13,15 @@
             <a>
               <img alt="item.unitName" class="u-img z-lazy-bg" :src="item.defaultPicUrl" />
             </a>
-            <div class="m-favorite" @click="favoriteclickHandler(index,item.unitID)">
-              <i
-                class="icon-unit-unfavorate"
-                @click="favoriteHandler(index,item.unitID)"
-                :class="item.active?'':'favoritestyle'"
-              ></i>
-            </div>
+            <v-touch @tap="favoriteclickHandler(index,item.unitID)" tag="div">
+              <div class="m-favorite">
+                <i
+                  class="icon-unit-unfavorate"
+                  @click="favoriteHandler(index,item.unitID)"
+                  :class="item.active?'':'favoritestyle'"
+                ></i>
+              </div>
+            </v-touch>
             <div class="m-price-info">
               <span class="f-fwb">￥{{item.finalPrice}}</span>
             </div>
@@ -69,42 +70,43 @@ export default {
     //   console.log(this.mainlist);
     // });
     this.getHomeData();
-    
   },
   computed: {
     ...mapState({
       homelist: state => state.homestore.homelist,
-      collectionlist: state => state.homestore.collectionlist,
+      collectionlist: state => state.homestore.collectionlist
     })
   },
   methods: {
     ...mapActions({
-      getHomeData: "homestore/getHomeData",
+      getHomeData: "homestore/getHomeData"
     }),
     ...mapMutations({
-          favoriteclickHandler:"homestore/favoriteclickHandler"
+      favoriteclickHandler: "homestore/favoriteclickHandler"
     }),
 
-    favoriteHandler(index,val) {
-      
+    favoriteHandler(index, val) {
       // console.log(this.mainlist[index].active)
-      console.log(val)
-      if (!this.homelist[index].active) {
-        this.collectiontext = "取消收藏成功";
-        this.collection = true;
+      if (sessionStorage.getItem("num")) {
+        console.log(val);
+        if (this.homelist[index].active) {
+          this.collectiontext = "取消收藏成功";
+          this.collection = true;
+        } else {
+          this.collectiontext = "收藏成功";
+          this.collection = true;
+        }
+        setTimeout(() => {
+          this.collection = false;
+        }, 3000);
       } else {
-        this.collectiontext = "收藏成功";
-        this.collection = true;
+        this.$router.push("/login");
       }
-      setTimeout(() => {
-        this.collection = false;
-      }, 3000);
     }
   }
 };
 </script>
 <style>
-
 /* 收藏 */
 .tj-toast--text {
   box-sizing: border-box;

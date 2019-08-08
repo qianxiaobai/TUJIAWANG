@@ -2,7 +2,9 @@
     <div class="mine">
             <!-- /*header*/ -->
         <div class="head">
+            <v-touch  @tap="backHandler()" tag="div">
              <div class="icon"><a-icon type="left"/>途家</div>
+             </v-touch>
              <div>我的途家</div>
              <HeadNav/>
         </div>
@@ -65,6 +67,12 @@ import Footer from "components/mine/footer.vue"
         components:{
             HeadNav,
             Footer
+        },
+        methods:{
+backHandler(){
+    this.$router.back()
+}
+
         },
         data() {
             return {

@@ -46,12 +46,15 @@ const actions={
         favoriteclickHandler(state,value){
             // console.log(state,value)
             // console.log(state.homelist[value])
-            state.homelist[value].active = !state.homelist[value].active;
-            console.log(state.collectionlist)
-            if(state.collectionlist.indexOf(state.homelist[value])===-1){
-                console.log(state.collectionlist,value)
-                state.collectionlist.push(state.homelist[value])
+            if(sessionStorage.getItem("num")){
+                state.homelist[value].active = !state.homelist[value].active;
+                console.log(state.collectionlist)
+                if(state.collectionlist.indexOf(state.homelist[value])===-1){
+                    console.log(state.collectionlist,value)
+                    state.collectionlist.push(state.homelist[value])
+                }
             }
+            
             
             // console.log(state.collectionlist)
         },
