@@ -4,6 +4,6 @@ export default {
     name:"collection",
     meta:{
         tabBar:false,
-        auth:false
+        auth:true
     },
 }

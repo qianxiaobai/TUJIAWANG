@@ -6,8 +6,14 @@ module.exports = {
                 target:"https://m.tujia.com",
                 changeOrigin:true
             },
-        }
+            "/feapi":{
+                target:"https://pwa.tujia.com",
+                changeOrigin:true
+            },
+        },
+
     },
+//https://pwa.tujia.com/feapi/bingo/h5/promotion/search/searchhousebyhouseidlist?_apitsp=1565157575933
     //https://api.growingio.com/v2/1fa38dc3b3e047ffa08b14193945e261/web/action?stm=1565080559744
 
     configureWebpack:{
