@@ -14,15 +14,11 @@ module.exports = {
                 target:"https://travel.tujia.com",
                 changeOrigin:true
             },
+            
         },
 
     },
-    //https://travel.tujia.com/recommend/nearby/houses?cityId=7&unitIds=&longitude=0.0&latitude=0.0
-
-   // https://travel.tujia.com/note/cmt/4392?page_number=0
-   // https://travel.tujia.com/note
-//https://pwa.tujia.com/feapi/bingo/h5/promotion/search/searchhousebyhouseidlist?_apitsp=1565157575933
-    //https://api.growingio.com/v2/1fa38dc3b3e047ffa08b14193945e261/web/action?stm=1565080559744
+//https://travel.tujia.com/recommend/nearby/houses?cityId=346&unitIds=&longitude=0.0&latitude=0.0
 
     configureWebpack:{
         resolve:{
