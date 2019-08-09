@@ -3,17 +3,17 @@
     <headerDown></headerDown>
     <div class="head">
       <v-touch @tap="backHandler()" tag="div">
-      <div class="icon" >
-        <a-icon type="left" />途家
-      </div>
+        <div class="icon" >
+          <a-icon type="left" />途家
+        </div>
       </v-touch>
       <v-touch @tap="pushHandler()" tag="div">
-      <div class="m-search-title f-toe">
-        <span class="u-search-city">
-          <i>{{name}}</i>
-        </span>
-      </div>
-            </v-touch>
+          <div class="m-search-title f-toe">
+            <span class="u-search-city">
+              <i>{{name}}</i>
+            </span>
+          </div>
+      </v-touch>
       <HeadNav />
     </div>
 
@@ -98,7 +98,6 @@ export default {
     // mock数据
     axios.post("/asd").then(data => {
       this.houselist = data.data.list;
-      console.log(data)
     });
   },
   computed: {
@@ -106,7 +105,6 @@ export default {
       homelist: state => state.homestore.homelist,
       seachlist: state => state.city.seachlist
     })
-
   },
   methods: {
     ...mapActions({
@@ -115,10 +113,10 @@ export default {
 backHandler(){
   this.$router.push("/")
 },
-pushHandler(){
+ pushHandler(){
    this.$router.push("/cityList/china")
   },
-  },
+},
   components: {
     HeadNav,
     MainList,

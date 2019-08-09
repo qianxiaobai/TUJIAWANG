@@ -38,7 +38,7 @@
     export default {
 methods:{
     backHandler(){
-        this.$router.back()
+        this.$router.push('/')
     }
 }
     }  
