@@ -1,5 +1,5 @@
 const Mock  = require("mockjs")
-
+// seachdetail
 const  data =Mock.mock({
   "list|1000":[{
       "id|+1":0,
@@ -19,3 +19,14 @@ Mock.mock(/\asd/,"post",function(){
   })
 
 
+  // autopalydetail
+const auto=Mock.mock({
+  "list|8":[{
+    "id|+1":0+"jpg",
+    "info":'@cparagraph(1, 9)',
+    "img":"https://staticfile.tujia.com/upload/TravelArticleContent/day_180807/thumb/201808071151493277_600_400.jpg"
+  }]
+})
+Mock.mock(/\autop/,"post",function(){
+  return auto
+})

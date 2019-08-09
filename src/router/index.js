@@ -6,6 +6,7 @@ import Mine from "views/mine/index.vue"
 import Collection from "./collection/index"
 import Login from "./registerlogin/login.js"
 import Register from "./registerlogin/register.js"
+import Autoplay from "./autoplay/index.js"
 Vue.use(Router)
 
 const router= new Router({
@@ -31,6 +32,8 @@ const router= new Router({
    Register,
     //登录
     Login,
+    //轮播处理
+    Autoplay,
     //citylist
     {
       path:"/cityList",
