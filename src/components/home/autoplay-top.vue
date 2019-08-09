@@ -3,13 +3,17 @@
     <div class="swiper-container" ref="swiperContainer">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item,index) in banner" :key="index">
+          <a href="#/autoplay">
           <img :src="item" />
+          </a>
         </div>
       </div>
       <!-- 如果需要分页器 -->
       <div class="swiper-pagination"></div>
       <div class="seach">
-        <v-touch @tap="handler()" tag="div"><i class="iconfont seachicon">&#xe680;</i> 您想住哪儿？</v-touch>
+        <v-touch @tap="handler()" tag="div">
+          <i class="iconfont seachicon">&#xe680;</i> 您想住哪儿？
+        </v-touch>
       </div>
     </div>
   </div>
@@ -41,21 +45,24 @@ export default {
       this.$nextTick(() => {
         var mySwiper = new Swiper(this.$refs.swiperContainer, {
           loop: true, // 循环模式选项
+          effect: "cube",
+          cubeEffect: {
+            slideShadows: true,
+            shadow: true,
+            shadowOffset: 100,
+            shadowScale: 0.6
+          },
           autoplay: {
             disableOnInteraction: false
           }
-          // 如果需要分页器
-          //   pagination: {
-          //     el: ".swiper-pagination"
-          //   }
         });
       });
     }
   },
 
   methods: {
-    handler(){
-       this.$router.push("/cityList/command");
+    handler() {
+      this.$router.push("/cityList/command");
     }
   }
 };
@@ -77,7 +84,7 @@ export default {
   right: 0.3rem;
   bottom: 0.52rem;
   height: 0.4rem;
-  background: rgba(255, 255,255);
+  background: rgba(255, 255, 255);
   border: 0.02rem solid #fff;
   z-index: 3;
 }
@@ -87,10 +94,10 @@ export default {
   color: #555;
   /* font-size:.14rem; */
 }
-.seachicon{
-    color:#f60;
-    font-size: .23rem;
-    vertical-align: middle
+.seachicon {
+  color: #f60;
+  font-size: 0.23rem;
+  vertical-align: middle;
 }
 </style>
 

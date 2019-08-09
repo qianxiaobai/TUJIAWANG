@@ -1,9 +1,12 @@
 <template>
   <div>
+    <headerDown />
     <div class="head">
-      <div class="icon">
-        <a-icon type="left" />途家
-      </div>
+      <v-touch @tap="backHandler()" tag="div">
+        <div class="icon">
+          <a-icon type="left" />途家
+        </div>
+      </v-touch>
       <div>我的收藏</div>
       <Floatheader />
     </div>
@@ -15,7 +18,7 @@
             <i
               class="icon-collect"
               @click="clickHandler(index)"
-             :class="item.adverUnit?'favoritestyle':''"
+              :class="item.adverUnit?'favoritestyle':''"
             ></i>
           </span>
           <div class="tj-toast tj-toast--text tj-toast--middle" v-show="collection">
@@ -47,10 +50,13 @@ import { getData } from "api/home.js";
 import { mapState, mapMutations, mapActions } from "vuex";
 import Floatheader from "components/home/headNav";
 import Footer from "components/mine/footer.vue";
+import headerDown from "components/home/headerdown.vue";
+
 export default {
   components: {
     Floatheader,
-    Footer
+    Footer,
+    headerDown
   },
   computed: {
     ...mapState({
@@ -78,6 +84,9 @@ export default {
     ...mapMutations({
       delectHandler: "homestore/delectHandler"
     }),
+    backHandler() {
+      this.$router.back();
+    },
     clickHandler(index) {
       if (!this.homelist[index].adverUnit) {
         this.collectiontext = "取消收藏成功";
@@ -86,7 +95,7 @@ export default {
       setTimeout(() => {
         this.collection = false;
       }, 3000);
-    },
+    }
   }
 };
 </script>
@@ -114,7 +123,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  padding:  .17rem  .17rem 0 0;
+  padding: 0.17rem 0.17rem 0 0;
 }
 .page-favorites > a .text {
   padding: 0.1rem;

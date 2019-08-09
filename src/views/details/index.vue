@@ -1,5 +1,6 @@
 <template>
   <div class="detail">
+   <headerDown />
     <Header />
     <!-- 客厅样式 -->
       <Lunbo/>

@@ -45,22 +45,25 @@ export default {
         cityHot: state => state.city.cityHot,
         cityList: state => state.city.cityList
         })
-  },
+    },
    methods:{
        ...mapActions({
            handleGetCityAction:"city/handleGetCityAction"
        }),
-    //     ...mapMutations({
-    //         handleToggleCity:"city/handleToggleCity"
-    //      }),
+
+        ...mapMutations({
+            handleToggleCity:"city/handleToggleCity"
+         }),
        handleIndexTo(index){
             let letterFirsts = this.$refs.list.querySelectorAll(".city_title_letter");
             this.$refs.scroll.scrollTop = letterFirsts[index].offsetTop;
        },
-    //     handleTo(params){
-    //         this.$router.push("/movie");
-    //         this.handleToggleCity(params)
-    //   }
+        handleTo(cityname){
+            let citynm=cityname.cityName;
+            let cityid=cityname.cityId
+            this.$router.push({name:'seach',params:{id:cityid,name:citynm}});
+             this.handleToggleCity(cityname)
+        }
    }
 
 }

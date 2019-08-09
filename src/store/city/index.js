@@ -2,26 +2,59 @@ import {city_api} from "api/index";
 const state={
     cityHot:JSON.parse(sessionStorage.getItem("cityHot"))||[],
     cityList:JSON.parse(sessionStorage.getItem("cityList"))||[],
-    cityName: sessionStorage.getItem("cityName")||"北京",
-    cityId:sessionStorage.getItem("cityId")||10,
+    
+    searchhistory: JSON.parse(sessionStorage.getItem("searchhistory"))||[],
 
     cityHot1:JSON.parse(sessionStorage.getItem("cityHot1"))||[],
     cityList1:JSON.parse(sessionStorage.getItem("cityList1"))||[],
+    // seachlist:{}
 
 }
 const actions={
     async handleGetCityAction({commit}){
         let data = await city_api();         
         commit("handleGetCityMutation",data.data.destinationConfig.list)
-        console.log(data)
     },
     async handleGetCityAction1({commit}){
         let data1 = await city_api();         
         commit("handleGetCityMutation1",data1.data.destinationConfigWW.list)
-        console.log(data1.data.destinationConfigWW.list)
     }
 }
 const mutations={
+
+
+    handleToggleCity(state,params){    
+       if(JSON.parse(sessionStorage.getItem("searchhistory"))==null){
+            state.searchhistory.push({cityId:params.cityId,cityName:params.cityName})
+            sessionStorage.setItem("searchhistory",JSON.stringify(state.searchhistory))
+       }else{
+           var n=0;
+            for(var i=0;i<state.searchhistory.length;i++){
+                if(params.cityName==state.searchhistory[i].cityName){
+                   n=1;
+                }
+            }
+            if(n==0){
+                state.searchhistory.push({cityId:params.cityId,cityName:params.cityName})
+                sessionStorage.setItem("searchhistory",JSON.stringify(state.searchhistory))
+            }
+           
+       }
+
+      
+    },
+
+    //seach
+    // handleToggleCity(state,val){
+    //     let obj=val;
+    //     console.log(obj)
+    //     console.log(obj.cityName)
+    //     state.seachlist.cityName=obj.cityName
+    //        console.log(state.seachlist)
+    // },
+
+
+
     handleGetCityMutation(state,params){
         let cityList=[],cityHot=[];
           //热门城市

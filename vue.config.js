@@ -1,13 +1,22 @@
 const path = require("path")
 module.exports = {
-
     devServer:{
         proxy:{
             "/bingo":{
                 target:"https://m.tujia.com",
                 changeOrigin:true
-            }
-        }
+            },
+            "/note":{
+                target:"https://travel.tujia.com",
+                changeOrigin:true
+            },
+            "/recommend":{
+                target:"https://travel.tujia.com",
+                changeOrigin:true
+            },
+            
+        },
+
     },
     configureWebpack:{
         resolve:{
@@ -21,15 +30,7 @@ module.exports = {
                 "router":path.join(__dirname,"./src/router"),
                 "store":path.join(__dirname,"./src/store"),
                 "assets":path.join(__dirname,"./src/assets")
-    
             }
         }
     }
 }
-
-//https://api.growingio.com/v2/1fa38dc3b3e047ffa08b14193945e261/web/action?stm=1565080559744
-
-//https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
-//https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
-//https://m.tujia.com/bingo/h5/config/getDownTujiaAppUrl?_apitsp=1564826231427
-

@@ -1,17 +1,6 @@
 <template>
-  <div id="home">
-    <!-- 浮动top banner -->
-    <div class="appdown-header f-border-bottom-line-gray" v-show="topclose">
-      <i class="appdown-header__close  iconfont" @click="topcloseHandler">&#xe67d;</i>
-      <img src="../../../public/img/tujialogo.png" alt class="appdown-header__logo" />
-      <div class="appdown-header__container">
-        <div class="appdown-header__container__left">
-          <div class="appdown-header__container__left__title">住民宿，上途家</div>
-          <div class="appdown-header__container__left__desc">新用户下载APP, 尽享新人专享红包</div>
-        </div>
-        <div class="appdown-header__container__btn">立即下载</div>
-      </div>
-    </div>
+  <div id="home">   
+    <headerDown /> 
     <!-- 导航 -->
     <Nav />
     <!-- 轮播图 -->
@@ -35,7 +24,7 @@
           <h5>您有红包未领取！</h5>
           <p>首单优惠限时抢 最高立减100元！</p>
         </div>
-        <a href class="redpackage-btn">
+        <a class="redpackage-btn">
           <span>立即抢</span>
         </a>
       </div>
@@ -43,6 +32,10 @@
     <!-- 轮播图 -->
     <AutoBot />
     <!-- MainList -->
+    <div class="mainTitle">
+      <!-- 收藏警告框 -->
+      <h2>发现公寓</h2>
+    </div>
         <MainList />
     <!-- 底部 -->
     <HomeBottom />
@@ -50,8 +43,6 @@
     <div class="appdown_btn">
       <span>APP内打开</span>
     </div>
-    
-
     <!-- 浮动bottom banner -->
     <div class="tj-layer--download" v-show="floatclose">
       <img src="https://nmstatic.tujia.com/static/images/index/home/banner_download.jpg" alt />
@@ -76,11 +67,11 @@ import AutoTop from "components/home/autoplay-top.vue";
 import AutoBot from "components/home/autoplay-bottom.vue";
 import MainList from "components/home/mainlist.vue";
 import HomeBottom from "components/home/bottom.vue";
+import headerDown from "components/home/headerdown.vue"; 
 export default {
   data() {
     return {
       floatclose: true,
-      topclose:true
     };
   },
   components: {
@@ -88,15 +79,13 @@ export default {
     AutoTop,
     AutoBot,
     MainList,
-    HomeBottom
+    HomeBottom,
+    headerDown
   },
   methods: {
     floatCloseHandler() {
       this.floatclose = false;
     },
-    topcloseHandler(){
-      this.topclose=false;
-    }
   }
 };
 </script>
@@ -118,7 +107,13 @@ p{margin: 0}
   padding: 0.15rem;
   color:#333
 }
-
+.mainTitle {
+  text-align: center;
+  background: #fff;
+  margin-top: 0.12rem;
+  line-height: 0.65rem;
+  color: #666;
+}
 .conentdiv-aspan {
   margin: 0 auto;
   display: block;
@@ -281,68 +276,5 @@ p{margin: 0}
   line-height: 0.14rem;
 }
 /* 浮动top banner */
-.appdown-header {
-    width: 100%;
-    background: hsla(0,0%,100%,.95);
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
-    height: 60px;
-    box-sizing: border-box;
-    display: flex;
-}
-.appdown-header .appdown-header__close {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    position: relative;
-    margin-left: 12px;
-    top: 50%;
-    font-size: 14px;
-    transform: translateY(-50%);
-    color:#f60
-}
-.appdown-header .appdown-header__logo {
-    width: 56px;
-    height: 56px;
-}
-.appdown-header .appdown-header__container {
-    flex: 1;
-    padding: 10px 10px 10px 0;
-    color: #333;
-    background: hsla(0,0%,100%,.95);
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
-    position: relative;
-    display: flex;
-}
-.appdown-header .appdown-header__container .appdown-header__container__left {
-    position: relative;
-    font-size: 14px;
-    font-family: PingFangSC-Light;
-    flex: 1;
-    overflow: hidden;
-}
-.appdown-header .appdown-header__container .appdown-header__container__left .appdown-header__container__left__title {
-    line-height: 20px;
-    color: #333;
-}
-.appdown-header .appdown-header__container .appdown-header__container__left .appdown-header__container__left__desc {
-    margin-top: 3px;
-    font-size: 12px;
-    line-height: 16px;
-    color: #999;
-    letter-spacing: 0;
-    margin-bottom:0
-}
-.appdown-header .appdown-header__container .appdown-header__container__btn {
-    width: 63px;
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    background: #ff9645;
-    border-radius: 6px;
-    font-size: 12px;
-    color: #fff;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 </style>
