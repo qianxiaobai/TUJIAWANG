@@ -48,7 +48,7 @@ import { mapMutations } from 'vuex';
           </li>
         </router-link>
         <li class="line"></li>
-        <router-link to="/">
+        <router-link to="/suggest">
           <li>
             <i class="iconfont">&#xe82f;</i>意见反馈
           </li>

@@ -9,6 +9,9 @@ const  data =Mock.mock({
       "info":'@cword(8, 15)',
       "spantext":'@cword(2, 4)',
       "spaninfo":'@cword(2, 4)',
+  }],
+  'city|100':[{
+    
   }]
 })
 
