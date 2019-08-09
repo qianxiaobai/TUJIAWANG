@@ -28,8 +28,8 @@
         <div class="text">{{collectiontext}}</div>
       </div>
 
-      <ul v-for="(item,index) in houselist" :key="index">
-        <li  v-show="item.cityName.substr(0,2)===name?true:false">
+      <ul >
+        <li v-for="(item,index) in houselist" :key="index"  v-show="item.cityName.substr(0,2)===name?true:false">
           <div class="g-unit-item-layout" title="item.citeName">
             <div class="m-img-info">
               <a>
@@ -149,7 +149,6 @@ ul{
 i {
   font-style: normal;
 }
-
 .g-filter-bar .g-filter-bar-content {
   width: 105%;
   height: 100%;
