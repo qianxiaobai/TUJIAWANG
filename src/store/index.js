@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import homestore from "./home/index.js"
-import city from "./city/index.js"
+import city from "./city/index.js";
+import details from "./details/index.js";
 Vue.use(Vuex)
 
   const state={
@@ -18,6 +19,7 @@ export default new Vuex.Store({
       mutations,
       modules:{
         homestore,
-        city
+        city,
+        details
       }
 })

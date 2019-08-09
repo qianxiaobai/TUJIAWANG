@@ -78,9 +78,7 @@ const server = axios.create({
 
 
 server.interceptors.request.use((config)=>{
-    console.log(222);
     if(config.method.toUpperCase() == "GET"){
-        console.log(333);
        // config.params = {...config.data}
     }else if(config.method.toUpperCase() == "POST"){
         config.headers["content-type"] = "appliaction/x-www-form-urlencoded";
@@ -88,7 +86,6 @@ server.interceptors.request.use((config)=>{
     }
     
     // vm.handlemount();
-    console.log(config);
     return config;
 },(err)=>{
     alert(1)
@@ -112,7 +109,6 @@ server.interceptors.response.use((res)=>{
 export default (method,url,data={})=>{
     console.log(method,url,data);
     if(method.toUpperCase() == "GET"){
-       console.log(11);
         return server.get(url,{
             params:data
         })
