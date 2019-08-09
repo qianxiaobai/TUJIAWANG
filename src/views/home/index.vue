@@ -67,7 +67,7 @@ import AutoTop from "components/home/autoplay-top.vue";
 import AutoBot from "components/home/autoplay-bottom.vue";
 import MainList from "components/home/mainlist.vue";
 import HomeBottom from "components/home/bottom.vue";
-import headerDown from "components/home/headerdown.vue";
+import headerDown from "components/home/headerdown.vue"; 
 export default {
   data() {
     return {
