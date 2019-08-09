@@ -58,7 +58,6 @@ const server = axios.create({  //自定义配置一个axios实例
 // },(err)=>{
 //     Promise.reject(err);
 // })
-
 // 在数据进入服务器之前拦截get方式的信息，将信息放入params中
 
 //添加请求的拦截器
@@ -94,7 +93,6 @@ server.interceptors.response.use(res=>{ //res就是跨域获取的所有信息�
 export default (method,url,data={})=>{
     console.log(method,url,data);
     if(method.toUpperCase() == "GET"){
-       console.log(11);
         return server.get(url,{
             params:data
         })

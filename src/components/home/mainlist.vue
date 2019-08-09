@@ -10,9 +10,10 @@
       <li v-for="(item,index) in homelist" :key="index">
         <div class="g-unit-item-layout" title="item.unitName">
           <div class="m-img-info">
-            <a>
-              <img alt="item.unitName" class="u-img z-lazy-bg" :src="item.defaultPicUrl" />
-            </a>
+
+              <a>
+                <v-touch tag="img" @tap="handlerDetails(item.unitID,item.cityName)" alt="item.unitName" class="u-img z-lazy-bg" :src="item.defaultPicUrl" />
+              </a>
             <v-touch @tap="favoriteclickHandler(index,item.unitID)" tag="div">
               <div class="m-favorite">
                 <i
@@ -55,6 +56,7 @@
 <script>
 import { getData } from "api/home.js";
 import { mapState, mapMutations, mapActions } from "vuex";
+import { parse } from 'path';
 export default {
   data() {
     return {
@@ -62,7 +64,6 @@ export default {
       collectiontext: ""
     };
   },
-
   created() {
     // getData().then(data => {
     //   //   console.log(data.data.units);
@@ -102,6 +103,13 @@ export default {
       } else {
         this.$router.push("/login");
       }
+
+      setTimeout(() => {
+        this.collection = false;
+      }, 3000);
+    },
+    handlerDetails(id,name){
+      this.$router.push({name:"details",params:{id,name}})
     }
   }
 };

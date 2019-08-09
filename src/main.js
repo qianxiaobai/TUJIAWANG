@@ -5,6 +5,7 @@ import store from 'store/index.js'
 import "./mock/index.js"
 Vue.config.productionTip = false;
 
+
 var VueTouch = require('vue-touch')
 Vue.use(VueTouch, {name: 'v-touch'})
 

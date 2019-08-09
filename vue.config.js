@@ -18,8 +18,6 @@ module.exports = {
         },
 
     },
-//https://travel.tujia.com/recommend/nearby/houses?cityId=346&unitIds=&longitude=0.0&latitude=0.0
-
     configureWebpack:{
         resolve:{
             alias:{
@@ -36,6 +34,3 @@ module.exports = {
         }
     }
 }
-//https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
-//https://m.tujia.com/bingo/h5/portal/getPortalUnitModule
-//https://m.tujia.com/bingo/h5/config/getDownTujiaAppUrl?_apitsp=1564826231427

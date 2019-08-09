@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import homestore from "./home/index.js"
-import city from "./city/index.js"
+import city from "./city/index.js";
+import details from "./details/index.js";
 import autostore from "./home/autoplay.js"
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
       modules:{
         homestore,
         city,
+        details,
         autostore
       }
 })

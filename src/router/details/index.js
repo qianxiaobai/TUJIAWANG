@@ -1,6 +1,6 @@
 export default {
-    path:"/details",
+    path:"/details/:id/:name",
     component:()=>import("views/details"),
-    name:"detail",
+    name:"details",
     props: true
 }
