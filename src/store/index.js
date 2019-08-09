@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import homestore from "./home/index.js"
 import city from "./city/index.js"
+import autostore from "./home/autoplay.js"
 Vue.use(Vuex)
 
   const state={
@@ -18,6 +19,7 @@ export default new Vuex.Store({
       mutations,
       modules:{
         homestore,
-        city
+        city,
+        autostore
       }
 })

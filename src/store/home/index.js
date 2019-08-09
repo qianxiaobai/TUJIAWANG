@@ -1,4 +1,3 @@
-
 import {home_Data} from "api/home.js" 
 import {seachList_api} from "api/home.js"
 const state={

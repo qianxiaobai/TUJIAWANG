@@ -24,7 +24,7 @@
           <h5>您有红包未领取！</h5>
           <p>首单优惠限时抢 最高立减100元！</p>
         </div>
-        <a href class="redpackage-btn">
+        <a class="redpackage-btn">
           <span>立即抢</span>
         </a>
       </div>

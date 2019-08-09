@@ -3,7 +3,9 @@
     <div class="swiper-container" ref="swiperContainer">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item,index) in banner" :key="index">
+          <a href="#/autoplay">
           <img :src="item" />
+          </a>
         </div>
       </div>
       <!-- 如果需要分页器 -->
