@@ -35,11 +35,18 @@ import { setTimeout } from 'timers';
         data(){
             return{
                  ids:false,
-                 msg:JSON.parse(localStorage.getItem('user')).username,
+                 msg:"",
                  color:false,
                  magtext:''
 
             }
+        },
+        created(){
+                    if(sessionStorage.getItem("num")){
+                        this.msg=JSON.parse(localStorage.getItem('user')).username
+                    }else{
+                        this.msg=""
+                    }
         },
         methods:{
             backHandler(){

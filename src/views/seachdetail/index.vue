@@ -126,10 +126,7 @@ backHandler(){
 </script>
 
 <style>
- .g-unit-tags-layout .colorf60{
-  color:#f60;
-  font-size: 16px
-}
+
 ul{
   margin: 0;
 }
@@ -359,6 +356,10 @@ i {
   box-sizing: content-box;
   background-color: rgba(0, 0, 0, 0.7);
   width: fit-content;
+}
+ .g-unit-tags-layout .colorf60{
+  color:#f60;
+  font-size: 16px
 }
 </style>
 
