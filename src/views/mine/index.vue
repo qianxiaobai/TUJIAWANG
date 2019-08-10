@@ -181,8 +181,9 @@ p {
   align-items: center;
   padding: 0 0.1rem;
 }
-.icon {
+.head .icon {
   color: #f90;
+  font-size: 16px
 }
 
 // middle

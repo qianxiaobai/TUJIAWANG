@@ -92,6 +92,33 @@ export default {
 </script>
 
 <style scoped>
+.tj-toast--text {
+  box-sizing: border-box;
+  padding: 0.17rem 0.2rem;
+  min-width: 2.71rem;
+  max-width: 2.71rem;
+  text-align: center;
+  z-index: 2000;
+}
+.tj-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -1.5rem;
+  display: flex;
+  color: #fff;
+  max-width: 70%;
+  font-size: 16px;
+  line-height: 0.21rem;
+  border-radius: 0.1rem;
+  word-break: break-all;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: content-box;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+}
 .login-tel {
   font-size: 14px;
   padding: 40px 20px 0;

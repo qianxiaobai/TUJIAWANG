@@ -108,7 +108,7 @@ methods:{
 .g-search-normal{
     width: 100%;
     height:0.28rem;
-    font-size: 14px;
+    font-size: 16px;
     position: fixed;
     top:0.44rem;
     left:0;

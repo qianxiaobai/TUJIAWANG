@@ -156,4 +156,7 @@ export default {
   background-image: url(https://nmstatic.tujia.com/static/images/page-unit-list.6ce19dc.png);
   background-position: 0 -0.34rem;
 }
+.head  .icon{
+  font-size: 16px
+}
 </style>
