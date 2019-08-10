@@ -63,7 +63,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 /* 客厅样式 */
 .swiper-container {
   text-align: center;

@@ -89,10 +89,11 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 #home {
   width: 100%;
-  font-size: 12px
+  font-size: 12px;
+  overflow: hidden
 }
 p{margin: 0}
 /* 我的 */
