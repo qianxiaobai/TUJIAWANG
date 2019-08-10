@@ -42,6 +42,9 @@ import { setTimeout } from 'timers';
             }
         },
         methods:{
+            backHandler(){
+            this.$router.back()
+            },
             handlerSubmit(){
                 this.ids=true;
                if(this.magtext==''){
