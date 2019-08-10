@@ -249,7 +249,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .detail {
   width: 100%;
   margin: 0;

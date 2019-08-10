@@ -28,7 +28,6 @@
         </v-touch>
         <p class="login-tip clearfix">
           <a href="#/register" class="sms-login fl-left">没有账号？去注册</a>
-          <a class="sms-login fl-right">忘记密码？</a>
         </p>
       </div>
     </div>
