@@ -55,17 +55,46 @@ export default {
       });
     }
   },
-
   methods: {}
 };
 </script>
 
-<style>
+<style scoped>
 .h2wrap {
   text-align: center;
   background: #fff;
   margin-top: 0.12rem;
   line-height: 0.65rem;
   color: #666;
+}
+.swiper-container {
+  width: 100%;
+  height: 2.8rem;
+  position: relative;
+}
+.swiper-container img {
+  width: 100%;
+  height: 100%;
+}
+.seach {
+  position: absolute;
+  left: 0.3rem;
+  right: 0.3rem;
+  bottom: 0.52rem;
+  height: 0.4rem;
+  background: rgba(255, 255, 255);
+  border: 0.02rem solid #fff;
+  z-index: 3;
+}
+.swiper-container .seach > div {
+  width: 100%;
+  text-align: center;
+  color: #555;
+  /* font-size:.14rem; */
+}
+.seachicon {
+  color: #f60;
+  font-size: 0.23rem;
+  vertical-align: middle;
 }
 </style>

@@ -114,7 +114,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 /* 收藏 */
 .tj-toast--text {
   box-sizing: border-box;

@@ -217,6 +217,8 @@ import Header from "components/details/header.vue";
 import Lunbo from "components/details/lunBo.vue";
 import { details_api } from "api/details.js";
 import { mapMutations } from 'vuex';
+
+import  headerDown from "components/home/headerdown.vue"
 export default {
   name: "Details",
   props: ["id", "name"],
@@ -231,7 +233,8 @@ export default {
   },
   components: {
     Header,
-    Lunbo
+    Lunbo,
+    headerDown
   },
   created() {
     this.detailID()
